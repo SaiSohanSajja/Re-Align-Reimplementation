@@ -35,7 +35,7 @@ This is a small-scale, compute-constrained reimplementation focused on demonstra
 - **Masking**: the paper uses GPT-4o mini with a dedicated prompt to intelligently mask objects, attributes, and logical relationships. This implementation uses a simple heuristic (predefined attribute word list + noun-following-article pattern) due to API cost constraints.
 - **Masked completion**: the paper conditions the VLM directly on the masked sentence + retrieved image to fill in only the blanked segments, preserving sentence structure. BLIP does not support conditioning on partial/masked text, so this implementation generates a fresh caption for the retrieved image instead — approximating the same outcome (a plausible response describing the wrong image) without preserving exact sentence structure.
 - **Scale**: 6 sample images across 3 categories vs. the paper's 11k–16k images sampled from LLaVA-Instruct-150K.
-- **No fine-tuning**: this repo implements Preference Generation (Section 3.1) only. The paper's rDPO fine-tuning stage (Section 3.2 — combining $\mathcal{L}_{DPO}$ and $\mathcal{L}_{vDPO}$ to actually update VLM weights) requires GPU resources (the paper uses 4x NVIDIA A6000ada GPUs) and is not implemented here.
+- **No fine-tuning**: this repo implements Preference Generation (Section 3.1) only. The paper's rDPO fine-tuning stage requires GPU resources (the paper uses 4x NVIDIA A6000ada GPUs) and is not implemented here.
 
 ## Reference
 
